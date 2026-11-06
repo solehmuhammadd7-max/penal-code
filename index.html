@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>San Andreas Penal Code</title>
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="nav"><div class="ni">
+  <a class="brand" href="#" data-tab="public"><img src="assets/logo.svg" alt=""><span>San Andreas Penal Code</span></a>
+  <div class="tabs">
+    <button class="tab on" data-tab="public">Penal Code</button>
+    <button class="tab" data-tab="admin">Admin</button>
+  </div>
+</div></nav>
+
+<header class="hero">
+  <h1>San Andreas Penal Code</h1>
+  <p class="tag">#LSPDVALIANT</p>
+  <p class="desc">Select the articles violated to automatically calculate the total prison sentence and fines..</p>
+</header>
+
+<main class="wrap">
+  <section id="v-public" class="view on">
+    <div class="filters">
+      <div class="fl">
+        <input id="q" type="search" placeholder="Search for a code or article simply by looking up its name." autocomplete="off">
+      </div>
+      <div id="chips" class="chips"></div>
+      <div id="sub" class="sub"></div>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Kode</th><th>Nama</th><th class="cat">Kategori</th><th>Klasifikasi</th><th>Waktu</th><th>Denda</th><th></th></tr></thead>
+        <tbody id="tb"></tbody>
+      </table>
+    </div>
+  </section>
+  <section id="v-admin" class="view"><div id="adminBody"></div></section>
+</main>
+
+<footer class="foot">
+  <div class="fi">
+    <div class="fc">
+      <div class="fbrand"><img src="assets/logo.svg" alt=""><b>San Andreas Penal Code</b></div>
+      <p>&copy; <span id="yr"></span> LSPD Valiant. Seluruh hak dilindungi. Konten fiktif untuk keperluan roleplay.</p>
+    </div>
+    <div class="fc"><h4>Navigasi</h4><a href="#" data-tab="public">Daftar Pasal</a><a href="#" data-tab="admin">Panel Admin</a></div>
+    <div class="fc"><h4>Kategori Hukum</h4><div id="fcats"></div></div>
+    <div class="fc"><h4>Kontak Kami</h4><span>Los Santos Police Department</span><span>Hubungi admin server melalui kanal resmi komunitas.</span><span>Tidak berafiliasi dengan Rockstar Games.</span></div>
+  </div>
+</footer>
+
+<div id="bar" class="bar"><div class="bi">
+  <div class="st"><small>Pasal</small><b id="bCount">0</b></div>
+  <div class="st"><small>Waktu</small><b id="bTime">0 mnt</b></div>
+  <div class="st"><small>Denda</small><b id="bFine">$0</b></div>
+  <button class="btn pri" id="bOpen">Lihat Total</button>
+</div></div>
+
+<div class="ov" id="ovD"><div class="md">
+  <h3 id="dTitle">Detail Pasal</h3><div id="dBody"></div>
+  <div class="acts"><button class="btn" data-close>Tutup</button></div>
+</div></div>
+
+<div class="ov" id="ovT"><div class="md">
+  <h3>Total Punishment</h3><div id="tList"></div>
+  <div class="tot"><span>Total time <b id="tTime">0</b></span><span>Total Denda <b id="tFine">$0</b></span></div>
+  <div class="acts"><button class="btn" id="copy">Salin Ringkasan</button><button class="btn arm" id="reset">Remove All</button><button class="btn" data-close>Tutup</button></div>
+</div></div>
+
+<div id="toasts"></div>
+
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
