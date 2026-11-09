@@ -33,7 +33,7 @@ function load(){
 function save(){try{localStorage.setItem(KEY,JSON.stringify(list))}catch(e){toast("err","Gagal menyimpan","Penyimpanan browser tidak tersedia.")}}
 const cats=()=>[...new Set(list.map(d=>d.category))];
 
-function toast(type,title,msg,ms){
+function mini(type,title,msg,ms){
   ms=ms||3200;
   const el=document.createElement("div");el.className="tn "+type;el.style.setProperty("--d",ms+"ms");
   el.innerHTML=`<b>${esc(title)}</b><span>${esc(msg)}</span><button class="x tx" aria-label="Tutup">&times;</button><i class="pg"></i>`;
@@ -41,6 +41,22 @@ function toast(type,title,msg,ms){
   while(box.children.length>4)box.firstChild.remove();
   const kill=()=>{el.classList.add("out");setTimeout(()=>el.remove(),250)};
   el.querySelector(".tx").onclick=kill;setTimeout(kill,ms);
+}
+
+/* Notifikasi popup (gaya SweetAlert) */
+const ICO={ok:"&#10003;",err:"&times;",info:"!"};
+function toast(type,title,msg){
+  const old=$(".al");if(old)old.remove();
+  const el=document.createElement("div");el.className="al";
+  el.innerHTML=`<div class="ab ${type}" role="alertdialog" aria-modal="true"><div class="ai ${type}"><span>${ICO[type]||"!"}</span></div><h3>${esc(title)}</h3><p>${esc(msg)}</p><button class="btn pri aok" type="button">OK</button></div>`;
+  document.body.appendChild(el);
+  requestAnimationFrame(()=>el.classList.add("show"));
+  const kill=()=>{document.removeEventListener("keydown",key,true);el.classList.remove("show");setTimeout(()=>el.remove(),220)};
+  const key=e=>{if(e.key==="Escape"||e.key==="Enter"){e.preventDefault();e.stopPropagation();kill()}};
+  document.addEventListener("keydown",key,true);
+  el.querySelector(".aok").onclick=kill;
+  el.addEventListener("click",e=>{if(e.target===el)kill()});
+  el.querySelector(".aok").focus();
 }
 const open=id=>$(id).classList.add("show");
 
@@ -108,9 +124,9 @@ function showTotals(){
 }
 function copySummary(){
   const t=totals();if(!t.L.length)return toast("info","Belum ada pasal","Tambahkan pasal terlebih dahulu.");
-  const txt=["RINGKASAN HUKUMAN",...t.L.map(({d,n})=>`${d.code} ${d.name} x${n} - ${typeof d.time==="number"?d.time*n+" menit":d.time} - ${money(d.fine*n)}`),
-    "Total Waktu: "+(t.life?"Life":t.m+" menit"),"Total Denda: "+money(t.f)].join("\n");
-  (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>toast("ok","Disalin","Ringkasan hukuman ada di clipboard.")).catch(()=>toast("err","Gagal menyalin","Browser menolak akses clipboard."));
+  const codes=t.L.map(({d,n})=>n>1?d.code+" x"+n:d.code).join(", ");
+  const txt=codes+" - "+t.f+"$";
+  (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>toast("ok","Disalin",txt)).catch(()=>toast("err","Gagal menyalin","Browser menolak akses clipboard."));
 }
 
 tb.addEventListener("click",e=>{
@@ -120,13 +136,13 @@ tb.addEventListener("click",e=>{
   const add=!sel.has(k);add?sel.set(k,1):sel.delete(k);
   paint(tr);summary();
   const d=list.find(x=>kf(x)===k);
-  toast(add?"ok":"info",add?"Pasal ditambahkan":"Pasal dihapus",d.code+" - "+d.name,1800);
+  mini(add?"ok":"info",add?"Pasal ditambahkan":"Pasal dihapus",d.code+" - "+d.name,1800);
 });
 $("#chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;cat=b.dataset.v;chips();render()});
 $("#q").addEventListener("input",e=>{q=e.target.value;render()});
 $("#bOpen").onclick=()=>{showTotals();open("#ovT")};
 $("#copy").onclick=copySummary;
-$("#reset").onclick=()=>{sel.clear();render();summary();showTotals();toast("info","Total direset","Semua pasal dihapus dari daftar.",1800)};
+$("#reset").onclick=()=>{sel.clear();render();summary();showTotals();mini("info","Total direset","Semua pasal dihapus dari daftar.",1800)};
 $("#tList").addEventListener("click",e=>{
   const b=e.target.closest("[data-q]");if(!b)return;
   const k=b.dataset.k,n=(sel.get(k)||0)+ +b.dataset.q;
