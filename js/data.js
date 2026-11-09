@@ -1,2 +1,241 @@
-// Daftar pasal masih kosong. Tambahkan lewat tab Admin, lalu "Ekspor data.js" dan ganti file ini.
-const charges=[];
+// Title I dan II sudah lengkap. Pasal contoh di bawahnya akan diganti saat Title III sampai Vehicle Code ditambahkan.
+const charges=[
+  {code:"101(a)",name:"Criminal Threats (Fisik/Mati)",category:"TITLE I – Crime Against the Person",class:"Misdemeanor",time:30,fine:500,desc:"Ancaman melukai atau membunuh yang menimbulkan rasa takut."},
+  {code:"101(b)",name:"Criminal Threats (Kerabat)",category:"TITLE I – Crime Against the Person",class:"Misdemeanor",time:30,fine:500,desc:"Ancaman terhadap teman dekat atau kerabat."},
+  {code:"102",name:"Assault",category:"TITLE I – Crime Against the Person",class:"Misdemeanor",time:25,fine:600,desc:"Upaya ilegal menyebabkan cedera kekerasan."},
+  {code:"103",name:"Assault on a Peace Officer",category:"TITLE I – Crime Against the Person",class:"Misdemeanor",time:30,fine:650,desc:"Assault terhadap petugas keamanan."},
+  {code:"105",name:"Assault with a Deadly Weapon",category:"TITLE I – Crime Against the Person",class:"Felony",time:40,fine:1150,desc:"Serangan atau ancaman menggunakan senjata berbahaya."},
+  {code:"106",name:"Assault Deadly Weapon on a Peace Officer",category:"TITLE I – Crime Against the Person",class:"Felony",time:50,fine:1200,desc:"Serangan bersenjata terhadap petugas keamanan."},
+  {code:"107",name:"Battery",category:"TITLE I – Crime Against the Person",class:"Misdemeanor",time:24,fine:450,desc:"Kekerasan fisik yang disengaja dan tidak sah."},
+  {code:"108",name:"Battery on a Peace Officer",category:"TITLE I – Crime Against the Person",class:"Misdemeanor",time:30,fine:500,desc:"Battery terhadap petugas keamanan."},
+  {code:"109",name:"Battery on a State Employee",category:"TITLE I – Crime Against the Person",class:"Misdemeanor",time:30,fine:500,desc:"Battery terhadap pegawai negeri."},
+  {code:"110(a)",name:"Aggravated Battery",category:"TITLE I – Crime Against the Person",class:"Felony",time:36,fine:850,desc:"Kekerasan berat atau berkelanjutan."},
+  {code:"110(b)",name:"Aggravated Battery (Weapon)",category:"TITLE I – Crime Against the Person",class:"Felony",time:48,fine:900,desc:"Aggravated battery menggunakan senjata."},
+  {code:"111",name:"Manslaughter",category:"TITLE I – Crime Against the Person",class:"Felony",time:72,fine:1000,desc:"Pembunuhan tanpa niat jahat."},
+  {code:"112(a)",name:"False Imprisonment",category:"TITLE I – Crime Against the Person",class:"Felony",time:36,fine:650,desc:"Menahan orang tanpa izin."},
+  {code:"112(b)",name:"Unlawful Citizen Arrest",category:"TITLE I – Crime Against the Person",class:"Misdemeanor",time:12,fine:250,desc:"Penangkapan warga tidak sah."},
+  {code:"113(a)",name:"Kidnapping",category:"TITLE I – Crime Against the Person",class:"Felony",time:48,fine:650,desc:"Penculikan dengan kekuatan atau ancaman."},
+  {code:"113(b)",name:"Kidnapping (Ransom)",category:"TITLE I – Crime Against the Person",class:"Felony",time:56,fine:660,desc:"Kidnapping untuk tebusan atau pemerasan."},
+  {code:"114",name:"Mayhem",category:"TITLE I – Crime Against the Person",class:"Felony",time:82,fine:1000,desc:"Melumpuhkan atau merusak bagian tubuh."},
+  {code:"115(a)",name:"Stalking",category:"TITLE I – Crime Against the Person",class:"Misdemeanor",time:12,fine:350,desc:"Mengikuti atau mengganggu dengan niat jahat."},
+  {code:"115(b)",name:"Stalking (RO Violation)",category:"TITLE I – Crime Against the Person",class:"Misdemeanor",time:16,fine:400,desc:"Melanggar perintah penahanan."},
+  {code:"116(a)",name:"Human Trafficking",category:"TITLE I – Crime Against the Person",class:"Felony",time:36,fine:750,desc:"Perdagangan manusia."},
+  {code:"116(b)",name:"Human Smuggling",category:"TITLE I – Crime Against the Person",class:"Felony",time:24,fine:660,desc:"Penyelundupan orang tanpa izin."},
+  {code:"185",name:"Disguise to Evade Police",category:"TITLE I – Crime Against the Person",class:"Misdemeanor",time:4,fine:150,desc:"Penyamaran untuk menghindari polisi."},
+  {code:"187(a)",name:"Murder – First Degree",category:"TITLE I – Crime Against the Person",class:"Felony",time:132,fine:1500,desc:"Pembunuhan berencana tingkat pertama."},
+  {code:"187(b)",name:"Murder – Second Degree",category:"TITLE I – Crime Against the Person",class:"Felony",time:120,fine:1250,desc:"Pembunuhan tanpa perencanaan."},
+  {code:"187(c)",name:"Felony Murder",category:"TITLE I – Crime Against the Person",class:"Felony",time:120,fine:1300,desc:"Pembunuhan saat melakukan felony."},
+  {code:"188(a)",name:"Attempted Murder",category:"TITLE I – Crime Against the Person",class:"Felony",time:56,fine:950,desc:"Percobaan pembunuhan dengan niat."},
+  {code:"188(b)",name:"Attempted Murder (Negligence)",category:"TITLE I – Crime Against the Person",class:"Felony",time:48,fine:870,desc:"Percobaan pembunuhan akibat kelalaian."},
+  {code:"211",name:"Robbery",category:"TITLE I – Crime Against the Person",class:"Felony",time:30,fine:650,desc:"Perampokan dengan kekuatan atau rasa takut."},
+  {code:"215",name:"Carjacking",category:"TITLE I – Crime Against the Person",class:"Felony",time:30,fine:450,desc:"Perampasan kendaraan bermotor."}
+];
+
+// Title II
+charges.push(
+  {code:"216",name:"Rape",category:"TITLE II – Sexual & Public Decency Crimes",class:"Felony",time:56,fine:540,desc:"Memaksa atau melakukan hubungan seksual tanpa persetujuan atau dengan orang yang tidak mampu."},
+  {code:"217",name:"Lewd Or Dissolute Conduct In Public",category:"TITLE II – Sexual & Public Decency Crimes",class:"Misdemeanor",time:12,fine:250,desc:"Perilaku seksual tidak pantas di tempat publik."},
+  {code:"218(a)",name:"Indecent Exposure (Public)",category:"TITLE II – Sexual & Public Decency Crimes",class:"Misdemeanor",time:14,fine:300,desc:"Memperlihatkan tubuh atau genitalia di tanah publik atau area publik bisnis."},
+  {code:"218(b)",name:"Indecent Exposure (Private)",category:"TITLE II – Sexual & Public Decency Crimes",class:"Misdemeanor",time:12,fine:250,desc:"Memperlihatkan tubuh tanpa izin di tanah pribadi."},
+  {code:"218(c)",name:"Indecent Exposure (Minor Witness)",category:"TITLE II – Sexual & Public Decency Crimes",class:"Felony",time:18,fine:350,desc:"Melakukan aktivitas seksual di depan anak di bawah umur."},
+  {code:"219",name:"Sexual Assault",category:"TITLE II – Sexual & Public Decency Crimes",class:"Misdemeanor",time:24,fine:450,desc:"Penghinaan verbal atau ancaman kontak seksual tidak disetujui."},
+  {code:"220(a)",name:"Sexual Battery (Unwanted Touch)",category:"TITLE II – Sexual & Public Decency Crimes",class:"Misdemeanor",time:30,fine:350,desc:"Sentuhan atau kontak seksual tidak diinginkan."},
+  {code:"220(b)",name:"Sexual Battery (Aggressive Contact)",category:"TITLE II – Sexual & Public Decency Crimes",class:"Felony",time:36,fine:550,desc:"Kontak fisik agresif untuk tujuan seksual."},
+  {code:"221",name:"Prostitution",category:"TITLE II – Sexual & Public Decency Crimes",class:"Misdemeanor",time:8,fine:150,desc:"Tindakan seksual sebagai imbalan uang/barang/layanan."},
+  {code:"222",name:"Solicitation of a Prostitute",category:"TITLE II – Sexual & Public Decency Crimes",class:"Misdemeanor",time:8,fine:150,desc:"Menawarkan pembayaran untuk tindakan seksual."},
+  {code:"223",name:"Pandering / Pimping",category:"TITLE II – Sexual & Public Decency Crimes",class:"Felony",time:20,fine:350,desc:"Mengajak, mengiklankan, atau membantu prostitusi untuk keuntungan."},
+  {code:"224",name:"Statutory Rape",category:"TITLE II – Sexual & Public Decency Crimes",class:"Felony",time:18,fine:250,desc:"Hubungan seksual dengan orang di bawah 18 tahun tanpa persetujuan hukum."},
+  {code:"225",name:"Child Abuse",category:"TITLE II – Sexual & Public Decency Crimes",class:"Felony",time:35,fine:550,desc:"Menyiksa atau menyebabkan cedera pada anak di bawah 18 tahun."},
+  {code:"226",name:"Possession of Child Pornography",category:"TITLE II – Sexual & Public Decency Crimes",class:"Felony",time:65,fine:1000,desc:"Memiliki materi seksual anak di bawah 18 tahun."},
+  {code:"227",name:"Solicitation of a Minor",category:"TITLE II – Sexual & Public Decency Crimes",class:"Felony",time:24,fine:450,desc:"Mengajak atau mengatur pertemuan dengan anak untuk tujuan seksual."},
+  {code:"228",name:"Minor Alcohol Violation",category:"TITLE II – Sexual & Public Decency Crimes",class:"Infraction",time:0,fine:2500,desc:"Anak di bawah 21 tahun memiliki alkohol."},
+  {code:"230(a)",name:"Animal Abuse / Cruelty (Intentional)",category:"TITLE II – Sexual & Public Decency Crimes",class:"Felony",time:16,fine:200,desc:"Menyiksa atau membunuh hewan hidup dengan sengaja."},
+  {code:"230(b)",name:"Animal Abuse / Cruelty (Negligent)",category:"TITLE II – Sexual & Public Decency Crimes",class:"Felony",time:12,fine:150,desc:"Menyiksa atau membunuh hewan hidup karena kelalaian."},
+  {code:"232",name:"Sale of Tobacco to a Minor",category:"TITLE II – Sexual & Public Decency Crimes",class:"Misdemeanor",time:4,fine:50,desc:"Menjual alkohol/tobacco kepada minor di bawah 21 tahun."}
+);
+
+// Title III
+charges.push(
+  {code:"301",name:"Littering",category:"TITLE III – Public Health & Safety",class:"Infraction",time:0,fine:300,desc:"Membuang sampah, rokok, atau benda lain yang bisa membahayakan publik."},
+  {code:"302",name:"Illegally Discharging a Firearm",category:"TITLE III – Public Health & Safety",class:"Misdemeanor",time:4,fine:100,desc:"Melepaskan tembakan secara ceroboh yang dapat melukai atau membunuh."},
+  {code:"303",name:"Shooting At An Inhabited Dwelling Or Occupied Car",category:"TITLE III – Public Health & Safety",class:"Felony",time:36,fine:550,desc:"Menembak ke arah rumah atau kendaraan yang ditempati dengan niat jahat."},
+  {code:"304",name:"Possession of a Controlled Substance Other than Marijuana",category:"TITLE III – Public Health & Safety",class:"Misdemeanor",time:4,fine:100,desc:"Memiliki zat terkontrol ilegal tanpa resep atau izin."},
+  {code:"305",name:"Possession of a Controlled Substance with Intent To Sell",category:"TITLE III – Public Health & Safety",class:"Felony",time:24,fine:350,desc:"Memiliki zat terkontrol >10 gram dengan niat untuk dijual."},
+  {code:"306",name:"Possession of Drug Paraphernalia",category:"TITLE III – Public Health & Safety",class:"Misdemeanor",time:4,fine:50,desc:"Memiliki alat untuk memproses atau mengonsumsi zat terkontrol ilegal."},
+  {code:"307",name:"Maintaining A Place For Distribution",category:"TITLE III – Public Health & Safety",class:"Felony",time:28,fine:450,desc:"Memelihara properti untuk penjualan atau distribusi ilegal zat/alat."},
+  {code:"308",name:"Manufacture of a Controlled Substance",category:"TITLE III – Public Health & Safety",class:"Felony",time:48,fine:550,desc:"Membuat atau memproses zat terkontrol ilegal."},
+  {code:"309",name:"Sale of a Controlled Substance Other than Marijuana",category:"TITLE III – Public Health & Safety",class:"Felony",time:36,fine:350,desc:"Menjual atau berniat menjual zat terkontrol ilegal."},
+  {code:"310",name:"Sale of a Controlled Substance (Marijuana/Prescription)",category:"TITLE III – Public Health & Safety",class:"Misdemeanor",time:14,fine:150,desc:"Menjual ganja atau obat resep tanpa izin."},
+  {code:"311",name:"Possession of an Open Container",category:"TITLE III – Public Health & Safety",class:"Infraction",time:0,fine:500,desc:"Memiliki wadah alkohol terbuka di tempat umum atau kendaraan."},
+  {code:"312",name:"Public Intoxication",category:"TITLE III – Public Health & Safety",class:"Misdemeanor",time:4,fine:40,desc:"Ditemukan mabuk di tempat umum."},
+  {code:"313(a)",name:"Under The Influence of Controlled Substance",category:"TITLE III – Public Health & Safety",class:"Misdemeanor",time:5,fine:50,desc:"Menggunakan zat terlarang tanpa izin."},
+  {code:"313(b)",name:"Under The Influence of Marijuana",category:"TITLE III – Public Health & Safety",class:"Misdemeanor",time:4,fine:30,desc:"Menggunakan ganja di tempat umum atau saat melakukan kejahatan."},
+  {code:"314(a)",name:"Possession of Marijuana ( More than 5g )",category:"TITLE III – Public Health & Safety",class:"Misdemeanor",time:6,fine:50,desc:"Memiliki ganja lebih dari 5 gram."},
+  {code:"314(b)",name:"Possession of Marijuana ( 5g (Under 21) )",category:"TITLE III – Public Health & Safety",class:"Misdemeanor",time:4,fine:40,desc:"Anak <21 tahun memiliki ganja 5 gram."},
+  {code:"314(c)",name:"Possession of Marijuana ( 5g (Under 18) )",category:"TITLE III – Public Health & Safety",class:"Infraction",time:0,fine:200,desc:"Anak <18 tahun memiliki ganja 5 gram."},
+  {code:"315",name:"Possession of an Unlicensed Firearm",category:"TITLE III – Public Health & Safety",class:"Misdemeanor",time:40,fine:450,desc:"Membawa senjata legal tanpa lisensi."},
+  {code:"316",name:"Possession of a Destructive Device",category:"TITLE III – Public Health & Safety",class:"Felony",time:30,fine:450,desc:"Memiliki alat peledak atau bahan sangat mudah terbakar."},
+  {code:"317",name:"Manufacture of a Destructive Device or Prohibited Weapon",category:"TITLE III – Public Health & Safety",class:"Felony",time:32,fine:500,desc:"Membuat atau memiliki senjata/alat perusak berbahaya."},
+  {code:"318",name:"Illegal Sale, Lease, or Transfer of a Firearm",category:"TITLE III – Public Health & Safety",class:"Felony",time:60,fine:800,desc:"Menjual, menyewakan, atau mentransfer senjata api tanpa FFL."},
+  {code:"319(a)",name:"Drive-By Shooting (Owner/Driver)",category:"TITLE III – Public Health & Safety",class:"Misdemeanor",time:16,fine:350,desc:"Mengizinkan tembakan dari kendaraan."},
+  {code:"319(b)",name:"Drive-By Shooting (Shooter)",category:"TITLE III – Public Health & Safety",class:"Felony",time:30,fine:400,desc:"Menembakkan senjata dari kendaraan."},
+  {code:"320",name:"Weapons License Violation",category:"TITLE III – Public Health & Safety",class:"Misdemeanor",time:50,fine:500,desc:"Pelanggaran peraturan membawa senjata api tersembunyi."},
+  {code:"321",name:"Failure to Report a Stolen Firearm",category:"TITLE III – Public Health & Safety",class:"Misdemeanor",time:40,fine:500,desc:"Tidak melaporkan senjata hilang dalam 48 jam."},
+  {code:"322",name:"Illegal Distribution of Ammunition",category:"TITLE III – Public Health & Safety",class:"Felony",time:30,fine:550,desc:"Menjual atau mendistribusikan amunisi secara ilegal."},
+  {code:"323(a)",name:"Terrorism (Threat/Action)",category:"TITLE III – Public Health & Safety",class:"Felony",time:"Life",fine:0,desc:"Ancaman atau tindakan sistematis untuk menimbulkan ketakutan di publik."},
+  {code:"323(b)",name:"Terrorism (Attack on Facility)",category:"TITLE III – Public Health & Safety",class:"Felony",time:"Life",fine:0,desc:"Serangan atau ancaman terhadap fasilitas besar publik/pribadi."},
+  {code:"324",name:"Treason",category:"TITLE III – Public Health & Safety",class:"Felony",time:"Life",fine:0,desc:"Melakukan perang atau memberi bantuan kepada musuh negara."}
+);
+
+// Title IV
+charges.push(
+  {code:"401(a)",name:"Unlawful Assembly (2+ people for crime/violence)",category:"TITLE IV – Public Peace",class:"Misdemeanor",time:4,fine:50,desc:"Dua atau lebih orang berkumpul untuk melakukan tindak pidana atau kekerasan."},
+  {code:"401(b)",name:"Unlawful Assembly (Leader of Unauthorized Group)",category:"TITLE IV – Public Peace",class:"Infraction",time:0,fine:900,desc:"Pemimpin kelompok gagal berunjuk rasa/demonstrasi damai tanpa izin."},
+  {code:"402",name:"Incitement to Riot",category:"TITLE IV – Public Peace",class:"Felony",time:20,fine:450,desc:"Menggugah kerumunan untuk melakukan kekerasan atau kerusuhan sipil."},
+  {code:"403(a)",name:"Riot (Remain at Riot)",category:"TITLE IV – Public Peace",class:"Misdemeanor",time:8,fine:50,desc:"Tetap berada di kerusuhan/pertemuan tidak sah setelah peringatan hukum."},
+  {code:"403(b)",name:"Riot (Participation in Taking Someone from Custody)",category:"TITLE IV – Public Peace",class:"Felony",time:24,fine:500,desc:"Mengambil orang lain dari penahanan menggunakan kerusuhan."},
+  {code:"404",name:"Brandishing a Firearm",category:"TITLE IV – Public Peace",class:"Felony",time:120,fine:1500,desc:"Mengeluarkan atau memperlihatkan senjata api secara marah atau mengancam."},
+  {code:"405",name:"Brandishing a Deadly Weapon",category:"TITLE IV – Public Peace",class:"Misdemeanor",time:20,fine:250,desc:"Seseorang yang, kecuali dalam perlawanan diri, mengeluarkan atau memperlihatkan senjata mematikan lain selain senjata api dengan cara yang marah atau mengancam adalah bersalah atas misdemeanor, yang dapat dihukum dengan 20 menit penjara dan denda sebesar $250."},
+  {code:"406(a)",name:"Unauthorized Entry on Emergency Site",category:"TITLE IV – Public Peace",class:"Misdemeanor",time:10,fine:250,desc:"Memasuki area darurat/zona berbahaya tanpa izin."},
+  {code:"406(b)",name:"Refusal to Leave Emergency Site",category:"TITLE IV – Public Peace",class:"Misdemeanor",time:15,fine:200,desc:"Menolak meninggalkan atau kembali ke area darurat setelah dikeluarkan."},
+  {code:"406(c)",name:"Illegal Actions in Emergency Site",category:"TITLE IV – Public Peace",class:"Felony",time:20,fine:300,desc:"Melakukan tindakan ilegal lain di area darurat, termasuk pencurian atau perampokan."},
+  {code:"415(a)",name:"Disturbing the Peace (Illegal Fighting/Public Challenge)",category:"TITLE IV – Public Peace",class:"Misdemeanor",time:3,fine:20,desc:"Bertarung atau menantang orang lain di tempat publik secara ilegal."},
+  {code:"415(b)",name:"Disturbing the Peace (Excessive Noise)",category:"TITLE IV – Public Peace",class:"Infraction",time:0,fine:200,desc:"Mengganggu orang lain dengan suara keras dan tidak wajar."},
+  {code:"415(c)",name:"Disturbing the Peace (Offensive Words)",category:"TITLE IV – Public Peace",class:"Infraction",time:0,fine:500,desc:"Menggunakan kata-kata menyinggung di tempat publik yang dapat memprovokasi kekerasan segera."}
+);
+
+// Title V
+charges.push(
+  {code:"459",name:"Burglary",category:"TITLE V – Property Crimes",class:"Felony",time:20,fine:250,desc:"Memasuki bangunan atau kendaraan dengan niat melakukan pencurian atau felony lain."},
+  {code:"501(a)",name:"Embezzlement (Private)",category:"TITLE V – Property Crimes",class:"Misdemeanor",time:8,fine:50,desc:"Secara curang mengambil barang yang dipercayakan oleh orang lain."},
+  {code:"501(b)",name:"Embezzlement (Government Employee)",category:"TITLE V – Property Crimes",class:"Felony",time:20,fine:250,desc:"Pegawai negara secara curang memperoleh atau menggunakan barang yang dipercayakan berdasarkan kepercayaan."},
+  {code:"502(a)",name:"Arson (Intentional)",category:"TITLE V – Property Crimes",class:"Felony",time:32,fine:550,desc:"Membakar struktur, tanah hutan, atau barang secara sengaja dan jahat."},
+  {code:"502(b)",name:"Arson (Negligent)",category:"TITLE V – Property Crimes",class:"Misdemeanor",time:4,fine:50,desc:"Menyebabkan kebakaran melalui kelalaian atau kecelakaan kriminal."},
+  {code:"503",name:"Possession of Burglary Tools",category:"TITLE V – Property Crimes",class:"Misdemeanor",time:8,fine:20,desc:"Memiliki alat untuk melakukan pencurian dengan niat jahat."},
+  {code:"504",name:"Forgery",category:"TITLE V – Property Crimes",class:"Misdemeanor",time:6,fine:50,desc:"Menandatangani nama orang lain atau nama fiktif untuk menipu."},
+  {code:"505",name:"Forgery of State Document",category:"TITLE V – Property Crimes",class:"Felony",time:15,fine:250,desc:"Mengubah, membuat, atau mendistribusikan dokumen resmi palsu."},
+  {code:"506",name:"Counterfeiting",category:"TITLE V – Property Crimes",class:"Felony",time:12,fine:124,desc:"Membuat atau memiliki alat atau uang palsu."},
+  {code:"507",name:"Petty Theft",category:"TITLE V – Property Crimes",class:"Misdemeanor",time:8,fine:50,desc:"Mencuri barang pribadi atau perusahaan dengan nilai ≤ $950."},
+  {code:"508(a)",name:"Grand Theft (> $950)",category:"TITLE V – Property Crimes",class:"Felony",time:15,fine:250,desc:"Mencuri barang pribadi atau perusahaan dengan nilai > $950."},
+  {code:"508(b)",name:"Grand Theft (Vehicle)",category:"TITLE V – Property Crimes",class:"Felony",time:12,fine:187,desc:"Mencuri mobil yang tidak dihuni."},
+  {code:"508(c)",name:"Grand Theft (Firearm)",category:"TITLE V – Property Crimes",class:"Felony",time:30,fine:550,desc:"Mencuri senjata api."},
+  {code:"509(a)",name:"Extortion (Intimidation/Violence)",category:"TITLE V – Property Crimes",class:"Felony",time:22,fine:356,desc:"Menggunakan intimidasi atau kekerasan untuk mendapatkan barang/layanan."},
+  {code:"509(b)",name:"Extortion (Abuse of Power)",category:"TITLE V – Property Crimes",class:"Felony",time:32,fine:432,desc:"Menggunakan atau mengancam dengan kekuasaan untuk memaksa orang lain."},
+  {code:"510",name:"Receiving Stolen Property",category:"TITLE V – Property Crimes",class:"Misdemeanor",time:6,fine:70,desc:"Membeli atau menerima barang yang dicuri atau diperoleh secara ilegal."},
+  {code:"511(a)",name:"Insurance Fraud (Property Destruction)",category:"TITLE V – Property Crimes",class:"Felony",time:14,fine:434,desc:"Menghancurkan atau membuang barang diasuransikan dengan niat menipu."},
+  {code:"511(b)",name:"Insurance Fraud (False Claims via Accident)",category:"TITLE V – Property Crimes",class:"Misdemeanor",time:8,fine:87,desc:"Menyebabkan kecelakaan kendaraan untuk klaim palsu."},
+  {code:"512(a)",name:"Trespass (Closed Property)",category:"TITLE V – Property Crimes",class:"Misdemeanor",time:8,fine:80,desc:"Memasuki properti orang lain yang ditutup tanpa izin."},
+  {code:"512(b)",name:"Trespass (Government Facility)",category:"TITLE V – Property Crimes",class:"Felony",time:30,fine:140,desc:"Memasuki fasilitas pemerintah tanpa otorisasi di area terlarang."},
+  {code:"512(c)",name:"Trespass (Posted Land)",category:"TITLE V – Property Crimes",class:"Misdemeanor",time:6,fine:50,desc:"Memasuki tanah dengan tanda larangan."},
+  {code:"512(d)",name:"Trespass (Refuse to Leave Business)",category:"TITLE V – Property Crimes",class:"Misdemeanor",time:8,fine:70,desc:"Menolak meninggalkan tempat usaha saat diminta pemilik."},
+  {code:"512(e)",name:"Trespass (Ignore Warning)",category:"TITLE V – Property Crimes",class:"Misdemeanor",time:8,fine:90,desc:"Mengabaikan pemberitahuan untuk tidak memasuki properti tertentu."},
+  {code:"513",name:"Fraud",category:"TITLE V – Property Crimes",class:"Felony",time:18,fine:560,desc:"Menipu orang lain melalui pernyataan palsu untuk uang, barang, atau layanan."},
+  {code:"514",name:"Vandalism",category:"TITLE V – Property Crimes",class:"Misdemeanor",time:8,fine:80,desc:"Merusak properti orang lain."}
+);
+
+// Title VI
+charges.push(
+  {code:"601",name:"Bribery",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:25,fine:240,desc:"Memberi hadiah, uang, atau imbalan kepada pejabat publik untuk mempengaruhi tindakan mereka."},
+  {code:"602(a)",name:"Jury Tampering (Attempt to Influence)",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:8,fine:80,desc:"Mencoba mempengaruhi juri dengan ancaman, intimidasi, bujukan, atau janji."},
+  {code:"602(b)",name:"Jury Tampering (Threat to Juror Post-Verdict)",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:18,fine:280,desc:"Mengancam juri setelah putusan, menimbulkan ketakutan yang wajar."},
+  {code:"603(a)",name:"Intimidating a Witness or Victim (Direct)",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:20,fine:250,desc:"Mencegah saksi/korban hadir atau memberikan kesaksian dengan suap atau intimidasi."},
+  {code:"603(b)",name:"Intimidating a Witness or Victim (Documents)",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:16,fine:167,desc:"Mencegah distribusi atau penyelesaian surat pernyataan atau dokumen hukum."},
+  {code:"604",name:"Escape",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:40,fine:650,desc:"Melarikan diri dari penjara, layanan masyarakat, rumah sakit, atau penahanan oleh petugas."},
+  {code:"605(a)",name:"Aiding in Escape (Direct)",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:30,fine:550,desc:"Membantu orang yang ditahan melarikan diri."},
+  {code:"605(b)",name:"Aiding in Escape (Information)",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:8,fine:40,desc:"Memberikan informasi yang membantu pelarian orang yang ditahan."},
+  {code:"606(a)",name:"Perjury (False Statement)",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:16,fine:168,desc:"Memberikan informasi palsu dalam kesaksian atau dokumen resmi."},
+  {code:"606(b)",name:"Perjury (Officer)",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:28,fine:272,desc:"Petugas perdamaian membuat pernyataan material palsu dalam laporan resmi."},
+  {code:"607(a)",name:"Filing a False Report (General)",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:8,fine:80,desc:"Melaporkan kepada petugas bahwa kejahatan terjadi padahal laporan palsu."},
+  {code:"607(b)",name:"Filing a False Report (Firearm)",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:24,fine:298,desc:"Melaporkan senjata api hilang atau dicuri padahal palsu."},
+  {code:"608",name:"Filing a False Complaint",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:8,fine:50,desc:"Mengajukan keluhan palsu terhadap pejabat publik atau pegawai untuk tindakan administratif palsu."},
+  {code:"609(a)",name:"Corruption of Public Duty (Financial Gain)",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:30,fine:560,desc:"Petugas menggunakan informasi penyelidikan untuk keuntungan finansial."},
+  {code:"609(b)",name:"Corruption of Public Duty (Refusal to Act)",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:24,fine:450,desc:"Petugas menolak menangkap atau menerima orang yang didakwa."},
+  {code:"609(c)",name:"Corruption of Public Duty (Criminal Negligence)",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:24,fine:460,desc:"Pegawai negara menunjukkan kelalaian kriminal dalam tugas."},
+  {code:"610(a)",name:"Obstruction of Justice (Active)",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:6,fine:60,desc:"Mencegah atau menunda pegawai negara menjalankan tugas."},
+  {code:"610(b)",name:"Obstruction of Justice (Failure to Comply)",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:4,fine:40,desc:"Gagal mematuhi perintah sah dari petugas keamanan."},
+  {code:"611(a)",name:"Resisting a Peace Officer (Non-Vehicle)",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:8,fine:80,desc:"Menghindari atau melawan penangkapan secara fisik."},
+  {code:"611(b)",name:"Resisting a Peace Officer (Escape Custody)",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:10,fine:100,desc:"Melarikan diri dari penjagaan dengan alat pembatas atau kekuatan fisik."},
+  {code:"612",name:"Failure To Pay A Fine",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:8,fine:80,desc:"Gagal membayar denda atau biaya pengadilan dalam periode waktu yang ditentukan."},
+  {code:"613",name:"Failure to Identify to a Peace Officer",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:4,fine:40,desc:"Tidak memberikan identitas saat ditahan atau ditangkap."},
+  {code:"614(a)",name:"Impersonation of a State Employee",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:8,fine:80,desc:"Berpura-pura sebagai pegawai pemerintah negara/daerah."},
+  {code:"614(b)",name:"Impersonation via Uniform/Badge",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:8,fine:80,desc:"Mengenakan seragam resmi pegawai negara tanpa izin resmi."},
+  {code:"614(c)",name:"Impersonation of Federal Employee",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:20,fine:520,desc:"Berpura-pura sebagai pegawai federal."},
+  {code:"615",name:"Making a False Report of an Emergency",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:8,fine:80,desc:"Melaporkan keadaan darurat palsu."},
+  {code:"616",name:"Evidence Tampering",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:35,fine:535,desc:"Menghancurkan, menyembunyikan, atau mengubah bukti untuk menghalangi proses hukum."},
+  {code:"617",name:"Introduction of Contraband",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:36,fine:850,desc:"Memberikan atau memasukkan barang terlarang ke fasilitas pemasyarakatan."},
+  {code:"618",name:"Violation of Parole",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:48,fine:480,desc:"Melanggar ketentuan perjanjian parol."},
+  {code:"619(a)",name:"Voter Fraud (Illegal Influence)",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:52,fine:524,desc:"Menghalangi atau memengaruhi hasil pemungutan suara secara ilegal."},
+  {code:"619(b)",name:"Voter Pandering / Vote Buying",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:60,fine:650,desc:"Membeli suara atau memberikan manfaat tidak semestinya agar memengaruhi pemungutan suara."},
+  {code:"620",name:"Corruption of Public Office",category:"TITLE VI – Crimes Against Public Justice",class:"Felony",time:64,fine:645,desc:"Bertindak di luar kepentingan publik di kantor publik."},
+  {code:"621",name:"Contempt of Senate",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:8,fine:80,desc:"Tidak mematuhi perintah atau proses Senat."},
+  {code:"622",name:"Contempt of Court",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:8,fine:80,desc:"Tidak mematuhi perintah atau proses pengadilan."},
+  {code:"623",name:"Subpoena Violation",category:"TITLE VI – Crimes Against Public Justice",class:"Misdemeanor",time:8,fine:80,desc:"Mengabaikan atau melanggar perintah subpoena dari pengadilan."}
+);
+
+// Title VII
+charges.push(
+  {code:"701",name:"Reckless Driving",category:"TITLE VII – Crimes with a Vehicle",class:"Misdemeanor",time:20,fine:350,desc:"Mengemudi kendaraan dengan sengaja atau sembarangan mengabaikan keamanan orang atau harta benda."},
+  {code:"702",name:"Felony Reckless Driving",category:"TITLE VII – Crimes with a Vehicle",class:"Felony",time:28,fine:540,desc:"Mengemudi kendaraan secara berbahaya, menyebabkan cedera fisik, hampir menabrak pejalan kaki, atau di jalur lalu lintas berlawanan. Termasuk penyitaan lisensi 24 jam atas kebijaksanaan petugas."},
+  {code:"703(a)",name:"Driving Under the Influence (Alcohol ≥0.08%)",category:"TITLE VII – Crimes with a Vehicle",class:"Felony",time:24,fine:246,desc:"Mengemudi di bawah pengaruh alkohol ≥0,08%. Lisensi disita 24 jam."},
+  {code:"703(b)",name:"Driving Under the Influence (Officer on Duty)",category:"TITLE VII – Crimes with a Vehicle",class:"Felony",time:30,fine:350,desc:"Pegawai negara mengemudi kendaraan negara di bawah pengaruh narkoba/alkohol. Lisensi disita 24 jam."},
+  {code:"703(c)",name:"Driving Under the Influence (Commercial Vehicle)",category:"TITLE VII – Crimes with a Vehicle",class:"Felony",time:24,fine:542,desc:"Mengemudi kendaraan komersial di bawah pengaruh narkoba/alkohol ≥0,04%. Lisensi disita 24 jam."},
+  {code:"703(d)",name:"Driving Under the Influence (Impairment)",category:"TITLE VII – Crimes with a Vehicle",class:"Misdemeanor",time:16,fine:165,desc:"Mengemudi kendaraan saat terganggu oleh alkohol, narkoba, atau kombinasi keduanya. Lisensi disita 24 jam."},
+  {code:"704",name:"Evading a Peace Officer",category:"TITLE VII – Crimes with a Vehicle",class:"Misdemeanor",time:16,fine:156,desc:"Melarikan diri atau menghindar dari kendaraan petugas keamanan. Lisensi disita 48 jam atas kebijaksanaan petugas."},
+  {code:"705",name:"Reckless Evading of a Peace Officer",category:"TITLE VII – Crimes with a Vehicle",class:"Felony",time:36,fine:365,desc:"Melarikan diri dari petugas sambil mengemudi ceroboh atau berbahaya. Lisensi disita 60 jam atas kebijaksanaan petugas."},
+  {code:"706(a)",name:"Hit and Run (Injury/Fatality)",category:"TITLE VII – Crimes with a Vehicle",class:"Felony",time:35,fine:464,desc:"Terlibat kecelakaan menyebabkan cedera atau kematian dan tidak berhenti di lokasi. Lisensi disita 24 jam."},
+  {code:"706(b)",name:"Hit and Run (Property Damage)",category:"TITLE VII – Crimes with a Vehicle",class:"Misdemeanor",time:10,fine:154,desc:"Terlibat kecelakaan menyebabkan kerusakan harta benda dan tidak berhenti di lokasi. Lisensi disita 24 jam."}
+);
+
+// Title VIII
+charges.push(
+  {code:"801",name:"Brandishing a Firearm",category:"TITLE VIII – Weapon and Firearm Violation",class:"Misdemeanor",time:20,fine:1000,desc:"Mengeluarkan, menampilkan, atau menunjukan senjata api untuk mengancam nyawa orang lain."},
+  {code:"802",name:"Discharging a Firearm in Public",category:"TITLE VIII – Weapon and Firearm Violation",class:"Misdemeanor",time:20,fine:500,desc:"Menembakkan senjata api di tempat umum tanpa alasan jelas. Pengecualian: bela diri atau petugas berwenang. Jika menimbulkan cedera, naik ke felony 40 menit dan $1,500."},
+  {code:"803",name:"Unlicensed Possession of a Deadly Weapon",category:"TITLE VIII – Weapon and Firearm Violation",class:"Misdemeanor",time:20,fine:760,desc:"Membawa senjata mematikan di tempat umum atau pribadi tanpa izin/lisensi valid."},
+  {code:"804(a)",name:"Possession of an Unlicensed Firearm",category:"TITLE VIII – Weapon and Firearm Violation",class:"Misdemeanor",time:25,fine:850,desc:"Memiliki senjata api tidak terdaftar di negara bagian San Andreas."},
+  {code:"804(b)",name:"Possession of Stolen Firearm",category:"TITLE VIII – Weapon and Firearm Violation",class:"Felony",time:30,fine:900,desc:"Memiliki senjata api hasil curian di negara bagian San Andreas."},
+  {code:"804(c)",name:"Possession of Replica Firearm with Intent",category:"TITLE VIII – Weapon and Firearm Violation",class:"Misdemeanor",time:20,fine:500,desc:"Memiliki senjata replika dengan niat mengancam nyawa orang lain."},
+  {code:"805",name:"Possession of an Illegal Firearm",category:"TITLE VIII – Weapon and Firearm Violation",class:"Felony",time:40,fine:600,desc:"Memiliki senjata api yang dibuat atau dibeli secara ilegal."},
+  {code:"806",name:"Firearm Theft",category:"TITLE VIII – Weapon and Firearm Violation",class:"Felony",time:50,fine:930,desc:"Mencuri atau mengambil senjata api orang lain, dengan atau tanpa ancaman."},
+  {code:"807",name:"Illegal Firearm Distribution",category:"TITLE VIII – Weapon and Firearm Violation",class:"Felony",time:30,fine:910,desc:"Memiliki senjata api ilegal dengan niat untuk diperjualbelikan."},
+  {code:"808",name:"Illegal Modification of a Firearm",category:"TITLE VIII – Weapon and Firearm Violation",class:"Felony",time:90,fine:2500,desc:"Memodifikasi senjata api secara ilegal (suppressor, full-auto conversion, extended magazine tanpa izin)."},
+  {code:"809",name:"Negligent Storage of a Firearm",category:"TITLE VIII – Weapon and Firearm Violation",class:"Misdemeanor",time:30,fine:750,desc:"Menyimpan senjata api tanpa pengamanan memadai sehingga dapat diakses anak di bawah umur."}
+);
+
+// Vehicle Code – San Andreas
+charges.push(
+  {code:"001",name:"License Suspension and Revocation",category:"VEHICLE CODE – SAN ANDREAS",class:"N/A",time:0,fine:0,desc:"Suspensi lisensi jika mendapat 3 poin, penyitaan kendaraan dan pencabutan lisensi jika 5 poin, poin hilang setiap 2 minggu atau setelah pencabutan."},
+  {code:"002",name:"Officer Discretion",category:"VEHICLE CODE – SAN ANDREAS",class:"N/A",time:0,fine:0,desc:"Petugas boleh menggunakan kebijaksanaan saat mengeluarkan pelanggaran sesuai VEH kecuali jika pengemudi bertindak tidak aman."},
+  {code:"201",name:"Driving without a Valid License",category:"VEHICLE CODE – SAN ANDREAS",class:"Misdemeanor/Infraction",time:4,fine:500,desc:"Mengemudi tanpa SIM valid atau SIM dicabut. Bisa misdemeanor 4 menit atau infraction $500 jika SIM kedaluwarsa."},
+  {code:"202",name:"Driving on a Suspended License",category:"VEHICLE CODE – SAN ANDREAS",class:"Misdemeanor",time:4,fine:550,desc:"Mengemudi dengan SIM yang ditangguhkan tapi masih valid. Kendaraan dapat ditahan."},
+  {code:"203",name:"Learner's Permit Violation",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:200,desc:"Remaja 16-18 tahun mengemudi tanpa izin belajar atau tanpa pendamping orang dewasa dengan SIM valid. Izin belajar dicabut."},
+  {code:"301",name:"Driving without Insurance",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:200,desc:"Mengemudi tanpa asuransi kendaraan bermotor valid. Kendaraan dapat ditahan."},
+  {code:"401",name:"Speeding",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:200,desc:"Berbagai tingkatan kecepatan berlebih, mulai dari infraction $200 sampai $750 dan poin SIM."},
+  {code:"402",name:"Failure to Yield",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:350,desc:"Tidak memberikan hak jalan di persimpangan kepada kendaraan lain."},
+  {code:"403",name:"Failure to Yield to Emergency Vehicles",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:400,desc:"Tidak memberi hak jalan kepada kendaraan darurat dengan sirene dan lampu darurat."},
+  {code:"404",name:"Failure to Abide by a Traffic Control Device",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:200,desc:"Tidak mematuhi tanda, sinyal, atau arahan petugas lalu lintas."},
+  {
+    code: "405.",
+    name: "Illegal Parking",
+    category: "VEHICLE CODE – SAN ANDREAS",
+    class: "Infraction",
+    time: 0,
+    fine: 950,
+    desc: "Seseorang yang berhenti, memarkir, atau meninggalkan kendaraan di tempat terlarang akan dikenakan denda dan penyitaan kendaraan."
+  },
+  {code:"406",name:"Vehicular Noise Violation",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:500,desc:"Kendaraan mengeluarkan suara berlebihan atau modifikasi suara yang mengganggu publik."},
+  {code:"407",name:"Illegal Use of Hydraulics",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:450,desc:"Menggunakan peralatan hidrolik saat bergerak di jalan umum."},
+  {code:"408",name:"Unsafe Usage of a Bicycle",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:500,desc:"Menggunakan sepeda atau kendaraan mengganggu lalu lintas atau menimbulkan bahaya."},
+  {code:"409",name:"Jaywalking",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:250,desc:"Menyeberang jalan di luar zebra cross atau persimpangan yang dikontrol lampu lalu lintas."},
+  {code:"410",name:"Speed Contests",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:500,desc:"Terlibat dalam perlombaan kecepatan kendaraan bermotor di jalan umum."},
+  {code:"411",name:"Unlawful Operation of Truck on Non-Designated Routes",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:1500,desc:"Mengemudikan truk/kendaraan besar di jalan non-rute truk atau masuk wilayah kota tanpa izin. Kendaraan dapat disita."},
+  {code:"412",name:"Operating a Commercial Vehicle Without Proper License Classification",category:"VEHICLE CODE – SAN ANDREAS",class:"Misdemeanor",time:0,fine:870,desc:"Mengemudi kendaraan komersial tanpa lisensi yang sesuai. Tambahan $500 jika menimbulkan kerusakan atau gangguan."},
+  {code:"501",name:"Tinted Windows",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:195,desc:"Kaca depan/samping/belakang dilapisi bahan yang menghalangi pandangan."},
+  {code:"502",name:"Driving Without use of Headlights",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:230,desc:"Mengemudi saat gelap tanpa lampu depan, termasuk cuaca buruk dengan visibilitas rendah."},
+  {code:"503",name:"Operating an Unsafe Vehicle",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:640,desc:"Mengemudi kendaraan dengan ban kempes, lampu belakang rusak, atau pintu/kap bagasi hilang/buka."},
+  {code:"504",name:"Unauthorized Use of Red/Blue Lights",category:"VEHICLE CODE – SAN ANDREAS",class:"Misdemeanor",time:10,fine:350,desc:"Mengemudi kendaraan dengan lampu darurat merah/biru tanpa izin resmi. Kendaraan dapat disita hingga lampu dilepas."},
+  {code:"601",name:"Failure to Wear a Helmet",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:500,desc:"Pengemudi atau penumpang sepeda motor tidak memakai helm keselamatan."},
+  {code:"602",name:"Unlawful Riding and Towing",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:400,desc:"Mengoperasikan kendaraan yang menarik/menarik kendaraan lain secara tidak aman, atau membiarkan penumpang naik di bagian tidak aman."},
+  {code:"603",name:"Reckless Operation of Machinery",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:250,desc:"Mengoperasikan mesin seperti bulldozer, dump, handler, dune, dan lainnya secara sembrono di jalan umum, kecuali keadaan darurat."},
+  {code:"604-B",name:"Reckless operation off an off-road vehicle",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:4100,desc:"Mengoperasikan kendaraan off-road secara sembrono di jalan umum. Kendaraan dapat ditahan sesuai kebijakan petugas."}, 
+  {code:"605",name:"Unlawful Riding in a Vehicle",category:"VEHICLE CODE – SAN ANDREAS",class:"Infraction",time:0,fine:250,desc:"Mengizinkan atau menaiki bagian kendaraan yang tidak diperuntukkan bagi penumpang, termasuk bagasi."}
+);
