@@ -3,14 +3,26 @@
 const $=s=>document.querySelector(s);
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const money=n=>"$"+Number(n||0).toLocaleString("en-US");
-const KEY="sapc_data_v2";
+const KEY="nexo_data_v1";
 const CLS=["Felony","Misdemeanor","Infraction","Misdemeanor/Infraction","N/A"];
 const ck=c=>/felony/i.test(c)?"bad":/misd/i.test(c)?"warn":/infr/i.test(c)?"ok":"mu";
 const kf=d=>d.category+"|"+d.code;
 const tm=t=>typeof t==="number"?t+" mnt":esc(t);
 const short=c=>c.split(" – ")[0];
 let list=load();
-let unlocked=sessionStorage.getItem("sapc_ok")==="1",cat="all",cls="all",srt="orig",q="",fails=0,until=0,editing=null,armed=null;
+let unlocked=sessionStorage.getItem("nexo_ok")==="1",cat="all",cls="all",srt="orig",q="",fails=0,until=0,editing=null,armed=null;
+const CK="nexo_cfg_v1";
+const imgur=u=>{u=(u||"").trim();const m=u.match(/^https?:\/\/(?:www\.)?imgur\.com\/([A-Za-z0-9]{5,8})$/);return m?"https://i.imgur.com/"+m[1]+".png":u};
+const bad=u=>/imgur\.com\/(a|gallery)\//i.test(u||"");
+let brand=(()=>{let s={};try{s=JSON.parse(localStorage.getItem(CK))||{}}catch(e){}return{...CONFIG,...s}})();
+function applyBrand(){
+  const lg=imgur(brand.logo)||"assets/logo.svg",bn=imgur(brand.banner),h=$(".hero");
+  document.querySelectorAll(".lg").forEach(i=>{i.referrerPolicy="no-referrer";i.onerror=()=>{i.onerror=null;i.src="assets/logo.svg"};i.src=lg});
+  $("link[rel=icon]").href=lg;
+  h.style.setProperty("--bn",bn?'url("'+bn.replace(/"/g,"%22")+'")':"none");h.classList.toggle("hasbn",!!bn);
+  document.querySelectorAll("[data-site]").forEach(e=>e.textContent=brand.siteName||"Nexotis Roleplay");
+  document.title=(brand.siteName||"Nexotis Roleplay")+" Penal Code";
+}
 const sel=new Map();
 const tb=$("#tb");
 
@@ -58,7 +70,7 @@ function row(d,i){
 function render(){
   if(cat!=="all"&&!cats().includes(cat))cat="all";
   const r=view();
-  tb.innerHTML=r.length?r.map(row).join(""):'<tr><td colspan="7" class="empty">Tidak ada pasal ditemukan.</td></tr>';
+  tb.innerHTML=r.length?r.map(row).join(""):`<tr><td colspan="7" class="empty">${list.length?"Tidak ada pasal ditemukan.":"Belum ada pasal. Buka tab Admin untuk menambahkan."}</td></tr>`;
   $("#sub").textContent=(cat==="all"?"Semua kategori":cat)+" - "+r.length+" pasal";
 }
 function paint(tr){
@@ -133,7 +145,7 @@ async function login(){
   if(now<until)return toast("err","Terlalu banyak percobaan","Tunggu "+Math.ceil((until-now)/1000)+" detik.");
   if(!window.crypto||!crypto.subtle)return toast("err","Tidak bisa verifikasi","Butuh koneksi HTTPS.");
   if(await sha($("#pw").value)===CONFIG.passHash){
-    unlocked=true;fails=0;sessionStorage.setItem("sapc_ok","1");renderAdmin();toast("ok","Login berhasil","Mode admin aktif.");
+    unlocked=true;fails=0;sessionStorage.setItem("nexo_ok","1");renderAdmin();toast("ok","Login berhasil","Mode admin aktif.");
   }else{
     if(++fails>=5){until=Date.now()+30000;fails=0}
     toast("err","Login gagal","Password salah.");card.classList.remove("shake");void card.offsetWidth;card.classList.add("shake");
@@ -168,7 +180,15 @@ function renderAdmin(){
   </form></div>
   <div class="card"><div class="ch"><h2>Daftar Pasal (${list.length})</h2><div class="acts" style="margin:0"><button class="btn" data-act="export">Ekspor data.js</button><button class="btn" data-act="resetdef">Reset ke Default</button></div></div>
   <input id="as" type="search" placeholder="Cari di daftar admin..." style="margin-bottom:12px">
-  <div class="tbl"><table><thead><tr><th>Kode</th><th>Nama</th><th>Klasifikasi</th><th>Waktu</th><th>Denda</th><th></th></tr></thead><tbody id="atb">${adminRows()}</tbody></table></div></div>`;
+  <div class="tbl"><table><thead><tr><th>Kode</th><th>Nama</th><th>Klasifikasi</th><th>Waktu</th><th>Denda</th><th></th></tr></thead><tbody id="atb">${adminRows()}</tbody></table></div></div>
+  <div class="card"><div class="ch"><h2>Tampilan &amp; Gambar</h2><button class="btn" data-act="expcfg">Ekspor config.js</button></div>
+  <p class="mut">Tempel link gambar Imgur (contoh: https://i.imgur.com/abc123.png). Link imgur.com/abc123 otomatis diubah. Link album (imgur.com/a/...) tidak bisa dipakai.</p>
+  <form id="af" class="grid">
+    <label class="full">Nama Server<input name="siteName" value="${esc(brand.siteName)}"></label>
+    <label>Link Logo<input name="logo" placeholder="https://i.imgur.com/xxxxx.png" value="${esc(brand.logo)}"></label>
+    <label>Link Banner (latar header)<input name="banner" placeholder="https://i.imgur.com/xxxxx.png" value="${esc(brand.banner)}"></label>
+    <div class="full acts"><button type="button" class="btn" data-act="resetcfg">Reset Tampilan</button><button class="btn pri">Simpan Tampilan</button></div>
+  </form></div>`;
 }
 function confirmed(btn,key){
   if(armed&&armed.key===key){clearTimeout(armed.t);armed=null;return true}
@@ -188,6 +208,13 @@ const admin=$("#adminBody");
 admin.addEventListener("submit",e=>{
   e.preventDefault();
   if(e.target.id==="lf")return login();
+  if(e.target.id==="af"){
+    const f=Object.fromEntries(new FormData(e.target));
+    if(bad(f.logo)||bad(f.banner))return toast("err","Link album tidak bisa","Buka gambar di Imgur, klik kanan, lalu salin alamat gambar (i.imgur.com/...).",4500);
+    const o={siteName:f.siteName.trim()||"Nexotis Roleplay",logo:imgur(f.logo),banner:imgur(f.banner)};
+    brand={...brand,...o};try{localStorage.setItem(CK,JSON.stringify(o))}catch(x){}
+    applyBrand();renderAdmin();return toast("ok","Tampilan disimpan","Klik Ekspor config.js agar berlaku untuk semua pengunjung.",4500);
+  }
   const f=Object.fromEntries(new FormData(e.target)),tv=f.time.trim();
   const o={code:f.code.trim(),name:f.name.trim(),category:f.category.trim(),class:f.class,time:/^\d+$/.test(tv)?+tv:tv,fine:Math.max(0,+f.fine||0),desc:f.desc.trim()};
   if(!o.code||!o.name||!o.category)return toast("err","Data tidak lengkap","Kode, nama, dan kategori wajib diisi.");
@@ -210,8 +237,14 @@ admin.addEventListener("click",e=>{
   const a=b.dataset.act,k=b.dataset.k;
   if(a==="edit"){editing=k;renderAdmin();window.scrollTo({top:0,behavior:"smooth"})}
   else if(a==="cancel"){editing=null;renderAdmin()}
-  else if(a==="logout"){unlocked=false;editing=null;sessionStorage.removeItem("sapc_ok");renderAdmin();toast("info","Keluar admin","Sesi admin diakhiri.")}
+  else if(a==="logout"){unlocked=false;editing=null;sessionStorage.removeItem("nexo_ok");renderAdmin();toast("info","Keluar admin","Sesi admin diakhiri.")}
   else if(a==="export")exportJs();
+  else if(a==="expcfg"){
+    const txt="const CONFIG = "+JSON.stringify({passHash:CONFIG.passHash,siteName:brand.siteName,logo:imgur(brand.logo),banner:imgur(brand.banner)},null,1)+";\n";
+    const l=document.createElement("a");l.href=URL.createObjectURL(new Blob([txt],{type:"text/javascript"}));l.download="config.js";l.click();
+    setTimeout(()=>URL.revokeObjectURL(l.href),1500);toast("info","Config diekspor","Ganti file js/config.js dengan file ini lalu deploy ulang.",4500);
+  }
+  else if(a==="resetcfg"){localStorage.removeItem(CK);brand={...CONFIG};applyBrand();renderAdmin();toast("info","Tampilan direset","Kembali ke isi config.js.")}
   else if(a==="del"){
     if(!confirmed(b,"del"+k))return;
     list=list.filter(d=>kf(d)!==k);sel.delete(k);save();refresh();toast("info","Pasal dihapus",k.split("|")[1]);
@@ -237,5 +270,5 @@ document.addEventListener("keydown",e=>{
   else if(e.key==="/"&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){e.preventDefault();tab("public");$("#q").focus()}
 });
 $("#yr").textContent=new Date().getFullYear();
-chips();render();summary();
+applyBrand();chips();render();summary();
 })();
