@@ -263,7 +263,7 @@ const charges=[
  {
   "code": "C01",
   "name": "Petty Theft",
-  "category": "C-Pencurian & Properti",
+  "category": "C-Properti",
   "class": "Misdemeanor",
   "time": 3,
   "fine": 15000,
@@ -272,7 +272,7 @@ const charges=[
  {
   "code": "C02",
   "name": "Grand Theft Auto",
-  "category": "C-Pencurian & Properti",
+  "category": "C-Properti",
   "class": "Misdemeanor",
   "time": 15,
   "fine": 40000,
@@ -281,7 +281,7 @@ const charges=[
  {
   "code": "C03",
   "name": "Store Robbery",
-  "category": "C-Pencurian & Properti",
+  "category": "C-Properti",
   "class": "Felony",
   "time": 25,
   "fine": 70000,
@@ -290,7 +290,7 @@ const charges=[
  {
   "code": "C04",
   "name": "Bank Robbery",
-  "category": "C-Pencurian & Properti",
+  "category": "C-Properti",
   "class": "Felony",
   "time": 70,
   "fine": 200000,
@@ -299,7 +299,7 @@ const charges=[
  {
   "code": "C05",
   "name": "Burglary",
-  "category": "C-Pencurian & Properti",
+  "category": "C-Properti",
   "class": "Felony",
   "time": 20,
   "fine": 55000,
@@ -308,7 +308,7 @@ const charges=[
  {
   "code": "C06",
   "name": "Property Damage",
-  "category": "C-Pencurian & Properti",
+  "category": "C-Properti",
   "class": "Misdemeanor",
   "time": 3,
   "fine": 20000,
@@ -317,7 +317,7 @@ const charges=[
  {
   "code": "C07",
   "name": "Vandalism",
-  "category": "C-Pencurian & Properti",
+  "category": "C-Properti",
   "class": "Infraction",
   "time": 0,
   "fine": 12000,
@@ -326,7 +326,7 @@ const charges=[
  {
   "code": "C08",
   "name": "Trespassing",
-  "category": "C-Pencurian & Properti",
+  "category": "C-Properti",
   "class": "Misdemeanor",
   "time": 2,
   "fine": 15000,
@@ -335,7 +335,7 @@ const charges=[
  {
   "code": "C09",
   "name": "Receiving Stolen Goods",
-  "category": "C-Pencurian & Properti",
+  "category": "C-Properti",
   "class": "Misdemeanor",
   "time": 15,
   "fine": 45000,
@@ -344,7 +344,7 @@ const charges=[
  {
   "code": "C10",
   "name": "Fraud",
-  "category": "C-Pencurian & Properti",
+  "category": "C-Properti",
   "class": "Misdemeanor",
   "time": 10,
   "fine": 38000,
@@ -353,7 +353,7 @@ const charges=[
  {
   "code": "C11",
   "name": "Arson",
-  "category": "C-Pencurian & Properti",
+  "category": "C-Properti",
   "class": "Felony",
   "time": 25,
   "fine": 65000,
@@ -362,7 +362,7 @@ const charges=[
  {
   "code": "C12",
   "name": "Extortion",
-  "category": "C-Pencurian & Properti",
+  "category": "C-Properti",
   "class": "Felony",
   "time": 18,
   "fine": 50000,
@@ -371,7 +371,7 @@ const charges=[
  {
   "code": "C13",
   "name": "Theft of Government Vehicle",
-  "category": "C-Pencurian & Properti",
+  "category": "C-Properti",
   "class": "Felony",
   "time": 30,
   "fine": 90000,
@@ -614,7 +614,7 @@ const charges=[
  {
   "code": "F01",
   "name": "Highway Robbery",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": 35,
   "fine": 0,
@@ -623,7 +623,7 @@ const charges=[
  {
   "code": "F02",
   "name": "Convenience Store Robbery",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": 25,
   "fine": 0,
@@ -632,7 +632,7 @@ const charges=[
  {
   "code": "F03",
   "name": "Car Theft",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Misdemeanor",
   "time": 15,
   "fine": 0,
@@ -641,7 +641,7 @@ const charges=[
  {
   "code": "F04",
   "name": "Attack on Government Agency",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": 20,
   "fine": 0,
@@ -650,7 +650,7 @@ const charges=[
  {
   "code": "F05",
   "name": "Hostage Taking (Civilian/Agency)",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": 70,
   "fine": 0,
@@ -659,7 +659,7 @@ const charges=[
  {
   "code": "F06",
   "name": "Armed Gang War",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": 30,
   "fine": 0,
@@ -668,7 +668,7 @@ const charges=[
  {
   "code": "F07",
   "name": "Prison Escape",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": 35,
   "fine": 90000,
@@ -677,7 +677,7 @@ const charges=[
  {
   "code": "F08",
   "name": "Aiding a Prison Escape",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": 18,
   "fine": 55000,
@@ -686,7 +686,7 @@ const charges=[
  {
   "code": "F09",
   "name": "Human Trafficking",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": 75,
   "fine": 200000,
@@ -695,7 +695,7 @@ const charges=[
  {
   "code": "F10",
   "name": "Bribery of an Officer",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": 22,
   "fine": 70000,
@@ -704,7 +704,7 @@ const charges=[
  {
   "code": "F11",
   "name": "Terrorism",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": 80,
   "fine": 0,
@@ -713,7 +713,7 @@ const charges=[
  {
   "code": "F12",
   "name": "Money Laundering",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": 45,
   "fine": 120000,
@@ -722,7 +722,7 @@ const charges=[
  {
   "code": "F13",
   "name": "Murder",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": "Life",
   "fine": 0,
@@ -731,7 +731,7 @@ const charges=[
  {
   "code": "F15",
   "name": "Flecca Bank Robbery",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": 100,
   "fine": 0,
@@ -740,10 +740,208 @@ const charges=[
  {
   "code": "F16",
   "name": "Shooting Civilian/Police",
-  "category": "F-Kejahatan Berat",
+  "category": "F-Kriminal Berat",
   "class": "Felony",
   "time": 70,
   "fine": 0,
   "desc": "Menembak warga sipil atau polisi."
+ },
+ {
+  "code": "G01",
+  "name": "Online Trade Fraud",
+  "category": "G-Ekonomi",
+  "class": "Misdemeanor",
+  "time": 8,
+  "fine": 30000,
+  "desc": "Menipu dalam transaksi jual beli."
+ },
+ {
+  "code": "G02",
+  "name": "Counterfeiting Money",
+  "category": "G-Ekonomi",
+  "class": "Felony",
+  "time": 35,
+  "fine": 100000,
+  "desc": "Memalsukan atau mengedarkan uang palsu."
+ },
+ {
+  "code": "G03",
+  "name": "Unlicensed Selling",
+  "category": "G-Ekonomi",
+  "class": "Infraction",
+  "time": 0,
+  "fine": 12000,
+  "desc": "Berjualan tanpa izin usaha."
+ },
+ {
+  "code": "G04",
+  "name": "Embezzlement",
+  "category": "G-Ekonomi",
+  "class": "Felony",
+  "time": 28,
+  "fine": 80000,
+  "desc": "Menggelapkan dana milik orang lain atau perusahaan."
+ },
+ {
+  "code": "G05",
+  "name": "Unpaid Taxes",
+  "category": "G-Ekonomi",
+  "class": "Infraction",
+  "time": 0,
+  "fine": 20000,
+  "desc": "Tidak membayar pajak yang diwajibkan."
+ },
+ {
+  "code": "G06",
+  "name": "Illegal Gambling",
+  "category": "G-Ekonomi",
+  "class": "Misdemeanor",
+  "time": 5,
+  "fine": 25000,
+  "desc": "Berjudi atau menyelenggarakan judi secara ilegal."
+ },
+ {
+  "code": "G07",
+  "name": "Hoarding Goods",
+  "category": "G-Ekonomi",
+  "class": "Misdemeanor",
+  "time": 6,
+  "fine": 30000,
+  "desc": "Menimbun barang demi keuntungan pribadi."
+ },
+ {
+  "code": "G08",
+  "name": "Price Manipulation",
+  "category": "G-Ekonomi",
+  "class": "Misdemeanor",
+  "time": 3,
+  "fine": 22000,
+  "desc": "Memanipulasi harga barang atau jasa."
+ },
+ {
+  "code": "G09",
+  "name": "Forged Business License",
+  "category": "G-Ekonomi",
+  "class": "Misdemeanor",
+  "time": 6,
+  "fine": 28000,
+  "desc": "Memalsukan surat izin usaha."
+ },
+ {
+  "code": "G10",
+  "name": "Illegal Business",
+  "category": "G-Ekonomi",
+  "class": "Felony",
+  "time": 18,
+  "fine": 60000,
+  "desc": "Menjalankan bisnis yang melanggar hukum."
+ },
+ {
+  "code": "G11",
+  "name": "Illegal Transaction",
+  "category": "G-Ekonomi",
+  "class": "Misdemeanor",
+  "time": 10,
+  "fine": 40000,
+  "desc": "Melakukan transaksi yang dilarang hukum."
+ },
+ {
+  "code": "H01",
+  "name": "Obstructing an Officer",
+  "category": "H-Lain-lain",
+  "class": "Misdemeanor",
+  "time": 6,
+  "fine": 25000,
+  "desc": "Menghalangi petugas yang sedang menjalankan tugas."
+ },
+ {
+  "code": "H02",
+  "name": "False Statement",
+  "category": "H-Lain-lain",
+  "class": "Misdemeanor",
+  "time": 8,
+  "fine": 30000,
+  "desc": "Memberikan keterangan palsu kepada petugas."
+ },
+ {
+  "code": "H03",
+  "name": "Ignoring Officer's Orders",
+  "category": "H-Lain-lain",
+  "class": "Infraction",
+  "time": 0,
+  "fine": 12000,
+  "desc": "Mengabaikan perintah petugas yang sah."
+ },
+ {
+  "code": "H04",
+  "name": "Disturbing the Peace",
+  "category": "H-Lain-lain",
+  "class": "Infraction",
+  "time": 0,
+  "fine": 10000,
+  "desc": "Membuat keributan yang mengganggu ketertiban."
+ },
+ {
+  "code": "H05",
+  "name": "Entering Restricted Area",
+  "category": "H-Lain-lain",
+  "class": "Misdemeanor",
+  "time": 3,
+  "fine": 18000,
+  "desc": "Memasuki area terlarang."
+ },
+ {
+  "code": "H06",
+  "name": "Impersonating via Fake Uniform",
+  "category": "H-Lain-lain",
+  "class": "Misdemeanor",
+  "time": 12,
+  "fine": 45000,
+  "desc": "Menggunakan seragam instansi secara palsu."
+ },
+ {
+  "code": "H07",
+  "name": "Impersonating an Officer",
+  "category": "H-Lain-lain",
+  "class": "Misdemeanor",
+  "time": 15,
+  "fine": 50000,
+  "desc": "Menyamar sebagai petugas."
+ },
+ {
+  "code": "H08",
+  "name": "Evading Arrest",
+  "category": "H-Lain-lain",
+  "class": "Misdemeanor",
+  "time": 10,
+  "fine": 35000,
+  "desc": "Kabur saat hendak ditangkap."
+ },
+ {
+  "code": "H09",
+  "name": "Insulting an Officer",
+  "category": "H-Lain-lain",
+  "class": "Misdemeanor",
+  "time": 4,
+  "fine": 20000,
+  "desc": "Menghina petugas yang sedang bertugas."
+ },
+ {
+  "code": "H10",
+  "name": "Non-Cooperation",
+  "category": "H-Lain-lain",
+  "class": "Infraction",
+  "time": 0,
+  "fine": 8000,
+  "desc": "Tidak kooperatif terhadap petugas."
+ },
+ {
+  "code": "H11",
+  "name": "Emergency Line Misuse",
+  "category": "H-Lain-lain",
+  "class": "Misdemeanor",
+  "time": 2,
+  "fine": 15000,
+  "desc": "Menyalahgunakan nomor darurat."
  }
 ];
