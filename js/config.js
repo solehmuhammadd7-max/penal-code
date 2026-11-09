@@ -6,6 +6,6 @@
 const CONFIG = {
  passHash: "c54feb7386bfacf07093365ff4b3b72a2dc9c6367fc9598a291dd1f8f6b3be68",
  siteName: "Nexotis Roleplay",
- logo: "",
- banner: ""
+ logo: "https://imgur.com/a/3XSgg3o",
+ banner: "https://imgur.com/a/3XSgg3o"
 };
